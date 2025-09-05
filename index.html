@@ -505,28 +505,742 @@
 
         /* Mobile Optimizations */
         @media (max-width: 768px) {
-            .mobile-stack {
-                flex-direction: column !important;
+
+            /* Prevent zoom on input focus */
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="date"],
+            textarea,
+            select {
+                font-size: 16px !important;
             }
 
-            .mobile-full {
+            /* Improve touch scrolling */
+            * {
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Navigation */
+            nav {
+                padding: 0.75rem 1rem;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 50;
+                backdrop-filter: blur(20px);
+            }
+
+            nav .flex {
+                gap: 0.5rem;
+            }
+
+            nav h1 {
+                font-size: 1.125rem;
+            }
+
+            /* Add top padding to body for fixed nav */
+            body {
+                padding-top: 4rem;
+            }
+
+            /* Header */
+            .mobile-header {
+                padding: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .mobile-header h2 {
+                font-size: 1.5rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .mobile-header p {
+                font-size: 0.75rem !important;
+            }
+
+            /* Stats Bar Mobile */
+            .mobile-stats {
+                flex-direction: column !important;
+                gap: 1rem !important;
+                padding: 1rem !important;
+            }
+
+            .mobile-stats-row {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 1rem !important;
                 width: 100% !important;
             }
 
-            .mobile-text-sm {
+            .mobile-stats-item {
+                display: flex !important;
+                align-items: center !important;
+                gap: 0.5rem !important;
+                padding: 0.75rem !important;
+                background: rgba(255, 255, 255, 0.5) !important;
+                border-radius: 0.75rem !important;
+                border: 1px solid var(--border-color) !important;
+            }
+
+            .mobile-stats-icon {
+                width: 2rem !important;
+                height: 2rem !important;
+                flex-shrink: 0 !important;
+            }
+
+            .mobile-stats-text {
+                flex: 1 !important;
+            }
+
+            .mobile-stats-text p:first-child {
+                font-size: 0.625rem !important;
+                margin-bottom: 0.125rem !important;
+            }
+
+            .mobile-stats-text p:last-child {
+                font-size: 1rem !important;
+                font-weight: 700 !important;
+            }
+
+            /* Main Content Mobile */
+            .mobile-main {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+                padding: 0 1rem !important;
+            }
+
+            /* Task Form Mobile */
+            .mobile-form {
+                padding: 1rem !important;
+            }
+
+            .mobile-form input[type="text"] {
+                font-size: 1rem !important;
+                padding: 0.875rem !important;
+            }
+
+            .mobile-form button {
+                padding: 0.875rem 1.25rem !important;
                 font-size: 0.875rem !important;
             }
 
-            .mobile-p-2 {
+            /* Category/Priority Mobile */
+            .mobile-selectors {
+                flex-direction: column !important;
+                gap: 0.75rem !important;
+                align-items: flex-start !important;
+            }
+
+            .mobile-selector-row {
+                display: flex !important;
+                align-items: center !important;
+                gap: 0.5rem !important;
+                width: 100% !important;
+            }
+
+            .mobile-selector-label {
+                font-size: 0.75rem !important;
+                min-width: 4rem !important;
+            }
+
+            .category-option-compact,
+            .priority-option-compact {
+                width: 2.5rem !important;
+                height: 2.5rem !important;
+            }
+
+            /* Task List Mobile */
+            .mobile-tasks {
+                padding: 1rem !important;
+            }
+
+            .task-item {
+                padding: 0.875rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .task-item p {
+                font-size: 0.875rem !important;
+                line-height: 1.25 !important;
+            }
+
+            .task-item .flex:last-child {
+                gap: 0.25rem !important;
+            }
+
+            .task-item button {
                 padding: 0.5rem !important;
             }
 
-            .mobile-space-y-2>*+* {
-                margin-top: 0.5rem !important;
+            /* Sidebar Mobile */
+            .mobile-sidebar {
+                margin-top: 1rem !important;
             }
 
-            .mobile-hidden {
+            .mobile-sidebar .card-bg {
+                padding: 0.875rem !important;
+            }
+
+            .mobile-sidebar h3 {
+                font-size: 0.875rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            .mobile-sidebar input {
+                font-size: 0.875rem !important;
+                padding: 0.625rem !important;
+            }
+
+            .mobile-sidebar button {
+                font-size: 0.75rem !important;
+                padding: 0.625rem !important;
+            }
+
+            /* Modals Mobile */
+            .mobile-modal {
+                margin: 1rem !important;
+                max-width: calc(100vw - 2rem) !important;
+            }
+
+            .mobile-modal h3 {
+                font-size: 1.125rem !important;
+            }
+
+            .mobile-modal p {
+                font-size: 0.875rem !important;
+            }
+
+            .mobile-modal button {
+                padding: 0.75rem !important;
+                font-size: 0.875rem !important;
+            }
+
+            /* Touch Targets */
+            .touch-target {
+                min-height: 44px !important;
+                min-width: 44px !important;
+            }
+
+            /* Scrolling */
+            .mobile-scroll {
+                max-height: 60vh !important;
+                overflow-y: auto !important;
+            }
+
+            /* Hide desktop elements */
+            .desktop-only {
                 display: none !important;
+            }
+
+            /* Show mobile elements */
+            .mobile-only {
+                display: block !important;
+            }
+
+            /* Floating Action Button */
+            .fab {
+                position: fixed !important;
+                bottom: 1.5rem !important;
+                right: 1.5rem !important;
+                width: 3.5rem !important;
+                height: 3.5rem !important;
+                border-radius: 50% !important;
+                background: linear-gradient(135deg, #f97316, #dc2626) !important;
+                color: white !important;
+                border: none !important;
+                box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4) !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                z-index: 40 !important;
+                transition: all 0.3s ease !important;
+            }
+
+            .fab:hover {
+                transform: scale(1.1) !important;
+                box-shadow: 0 12px 35px rgba(249, 115, 22, 0.6) !important;
+            }
+
+            /* Mobile Navigation */
+            .mobile-nav {
+                position: fixed !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                background: var(--bg-card) !important;
+                border-top: 1px solid var(--border-color) !important;
+                padding: 0.75rem !important;
+                z-index: 30 !important;
+                backdrop-filter: blur(20px) !important;
+            }
+
+            .mobile-nav-items {
+                display: flex !important;
+                justify-content: space-around !important;
+                align-items: center !important;
+            }
+
+            .mobile-nav-item {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 0.25rem !important;
+                padding: 0.5rem !important;
+                border-radius: 0.5rem !important;
+                transition: all 0.2s ease !important;
+                min-width: 3rem !important;
+            }
+
+            .mobile-nav-item:hover {
+                background: var(--bg-secondary) !important;
+            }
+
+            .mobile-nav-item.active {
+                background: var(--accent-primary) !important;
+                color: white !important;
+            }
+
+            .mobile-nav-text {
+                font-size: 0.625rem !important;
+                font-weight: 500 !important;
+            }
+
+            /* Add bottom padding to main content for mobile nav */
+            .mobile-main-content {
+                padding-bottom: 5rem !important;
+            }
+
+            /* Enhanced mobile interactions */
+            .mobile-swipe-hint {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .mobile-swipe-hint::after {
+                content: "← Swipe for options";
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 0.75rem;
+                color: var(--text-secondary);
+                opacity: 0.6;
+                pointer-events: none;
+            }
+
+            /* Pull to refresh indicator */
+            .pull-to-refresh {
+                position: fixed;
+                top: 4rem;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--bg-card);
+                padding: 0.5rem 1rem;
+                border-radius: 1rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                z-index: 40;
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+
+            .pull-to-refresh.active {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0.5rem);
+            }
+
+            /* Mobile-specific animations */
+            .mobile-slide-up {
+                animation: mobileSlideUp 0.3s ease-out;
+            }
+
+            @keyframes mobileSlideUp {
+                from {
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            /* Improved mobile modal */
+            .mobile-modal {
+                position: fixed !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                top: auto !important;
+                transform: none !important;
+                border-radius: 1rem 1rem 0 0 !important;
+                max-height: 80vh !important;
+                overflow-y: auto !important;
+            }
+
+            /* Mobile keyboard handling */
+            .keyboard-open {
+                padding-bottom: 0 !important;
+            }
+
+            /* Enhanced touch targets */
+            button,
+            .touch-target,
+            input[type="checkbox"] {
+                min-height: 48px !important;
+                min-width: 48px !important;
+            }
+
+            /* Mobile-specific task item styling */
+            .task-item {
+                padding: 1rem !important;
+                margin-bottom: 0.75rem !important;
+                border-radius: 1rem !important;
+                position: relative;
+                touch-action: pan-y;
+            }
+
+            .task-item::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 4px;
+                background: var(--accent-primary);
+                border-radius: 2px 0 0 2px;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+            }
+
+            .task-item:active::before {
+                opacity: 1;
+            }
+
+            /* Mobile form improvements */
+            .mobile-form input,
+            .mobile-form textarea {
+                border-radius: 1rem !important;
+                border: 2px solid var(--border-color) !important;
+                transition: all 0.2s ease !important;
+            }
+
+            .mobile-form input:focus,
+            .mobile-form textarea:focus {
+                border-color: var(--accent-primary) !important;
+                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+                transform: scale(1.02) !important;
+            }
+
+            /* Mobile stats cards */
+            .mobile-stats-item {
+                position: relative !important;
+                overflow: hidden !important;
+            }
+
+            .mobile-stats-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+                border-radius: 0.75rem 0.75rem 0 0;
+            }
+
+            /* Improved mobile navigation */
+            .mobile-nav {
+                backdrop-filter: blur(20px) !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1) !important;
+            }
+
+            .mobile-nav-item {
+                position: relative !important;
+                overflow: hidden !important;
+            }
+
+            .mobile-nav-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 2px;
+                background: var(--accent-primary);
+                transition: width 0.3s ease;
+            }
+
+            .mobile-nav-item.active::before {
+                width: 80%;
+            }
+
+            /* Mobile search enhancements */
+            #searchContainer {
+                position: fixed !important;
+                top: 4rem !important;
+                left: 1rem !important;
+                right: 1rem !important;
+                z-index: 45 !important;
+                background: var(--bg-card) !important;
+                border-radius: 1rem !important;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+                padding: 1rem !important;
+            }
+
+            /* Mobile theme menu */
+            #themeMenu {
+                position: fixed !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                top: auto !important;
+                transform: none !important;
+                border-radius: 1rem 1rem 0 0 !important;
+                max-height: 70vh !important;
+                overflow-y: auto !important;
+            }
+
+            /* Mobile loading states */
+            .mobile-loading {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .mobile-loading::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                animation: mobileShimmer 1.5s infinite;
+            }
+
+            @keyframes mobileShimmer {
+                0% {
+                    left: -100%;
+                }
+
+                100% {
+                    left: 100%;
+                }
+            }
+
+            /* Mobile haptic feedback simulation */
+            .haptic-light:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+
+            .haptic-medium:active {
+                transform: scale(0.95);
+                transition: transform 0.1s ease;
+            }
+
+            .haptic-heavy:active {
+                transform: scale(0.92);
+                transition: transform 0.1s ease;
+            }
+
+            /* Mobile category and priority options */
+            .mobile-category-option,
+            .mobile-priority-option {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 0.25rem !important;
+                padding: 0.75rem !important;
+                border: 2px solid var(--border-color) !important;
+                border-radius: 0.75rem !important;
+                cursor: pointer !important;
+                transition: all 0.2s ease !important;
+                background: var(--bg-secondary) !important;
+            }
+
+            .mobile-category-option:hover,
+            .mobile-priority-option:hover {
+                background: var(--accent-primary) !important;
+                color: white !important;
+                transform: scale(1.05) !important;
+            }
+
+            .mobile-category-option.selected,
+            .mobile-priority-option.selected {
+                background: var(--accent-primary) !important;
+                color: white !important;
+                border-color: var(--accent-secondary) !important;
+            }
+
+            .mobile-priority-option[data-priority="high"] {
+                border-color: #f59e0b !important;
+            }
+
+            .mobile-priority-option[data-priority="urgent"] {
+                border-color: #ef4444 !important;
+            }
+
+            .mobile-priority-option[data-priority="high"].selected {
+                background: #f59e0b !important;
+            }
+
+            .mobile-priority-option[data-priority="urgent"].selected {
+                background: #ef4444 !important;
+            }
+
+            /* Mobile swipe gestures */
+            .swipe-container {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .swipe-actions {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                background: linear-gradient(90deg, #ef4444, #dc2626);
+                padding: 0 1rem;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            }
+
+            .swipe-actions.active {
+                transform: translateX(0);
+            }
+
+            /* Mobile pull-to-refresh */
+            .pull-indicator {
+                position: fixed;
+                top: 4rem;
+                left: 50%;
+                transform: translateX(-50%) translateY(-100%);
+                background: var(--bg-card);
+                padding: 0.5rem 1rem;
+                border-radius: 1rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                z-index: 45;
+                transition: transform 0.3s ease;
+            }
+
+            .pull-indicator.visible {
+                transform: translateX(-50%) translateY(0.5rem);
+            }
+
+            /* Mobile vibration classes */
+            .vibrate-light {
+                animation: vibrateLight 0.1s ease-in-out;
+            }
+
+            .vibrate-medium {
+                animation: vibrateMedium 0.2s ease-in-out;
+            }
+
+            .vibrate-heavy {
+                animation: vibrateHeavy 0.3s ease-in-out;
+            }
+
+            @keyframes vibrateLight {
+
+                0%,
+                100% {
+                    transform: translateX(0);
+                }
+
+                25% {
+                    transform: translateX(-1px);
+                }
+
+                75% {
+                    transform: translateX(1px);
+                }
+            }
+
+            @keyframes vibrateMedium {
+
+                0%,
+                100% {
+                    transform: translateX(0);
+                }
+
+                20% {
+                    transform: translateX(-2px);
+                }
+
+                40% {
+                    transform: translateX(2px);
+                }
+
+                60% {
+                    transform: translateX(-2px);
+                }
+
+                80% {
+                    transform: translateX(2px);
+                }
+            }
+
+            @keyframes vibrateHeavy {
+
+                0%,
+                100% {
+                    transform: translateX(0);
+                }
+
+                10% {
+                    transform: translateX(-3px);
+                }
+
+                20% {
+                    transform: translateX(3px);
+                }
+
+                30% {
+                    transform: translateX(-3px);
+                }
+
+                40% {
+                    transform: translateX(3px);
+                }
+
+                50% {
+                    transform: translateX(-3px);
+                }
+
+                60% {
+                    transform: translateX(3px);
+                }
+
+                70% {
+                    transform: translateX(-3px);
+                }
+
+                80% {
+                    transform: translateX(3px);
+                }
+
+                90% {
+                    transform: translateX(-3px);
+                }
+            }
+        }
+
+        /* Tablet Optimizations */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .tablet-grid {
+                grid-template-columns: 1fr 300px !important;
+            }
+
+            .tablet-stats {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1rem !important;
             }
         }
 
@@ -619,6 +1333,14 @@
 </head>
 
 <body class="min-h-screen" data-theme="light">
+    <!-- Pull to Refresh Indicator -->
+    <div id="pullToRefresh" class="pull-to-refresh">
+        <div class="flex items-center gap-2">
+            <i data-lucide="refresh-cw" class="w-4 h-4 animate-spin"></i>
+            <span class="text-sm">Refreshing...</span>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="glass sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -698,19 +1420,20 @@
 
 
     <!-- Main App -->
-    <div id="mainApp">
+    <div id="mainApp" class="mobile-main-content">
         <!-- Header -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 mobile-header">
             <div class="text-center mb-6">
                 <h2 class="text-2xl font-bold text-themed mb-1">Ready to craft your day? ⚡</h2>
                 <p class="text-sm text-themed-secondary mb-1" id="todayDate"></p>
-                <p class="text-xs text-themed-secondary italic opacity-75" id="motivationalTip">"Every great achievement
-                    starts with a single task."</p>
+                <p class="text-xs text-themed-secondary italic opacity-75 desktop-only" id="motivationalTip">"Every
+                    great achievement starts with a single task."</p>
             </div>
 
             <!-- Compact Stats Bar -->
             <div class="card-bg rounded-2xl p-4 mb-6 shadow-lg">
-                <div class="flex items-center justify-between">
+                <!-- Desktop Layout -->
+                <div class="hidden md:flex items-center justify-between">
                     <div class="flex items-center space-x-6">
                         <div class="flex items-center space-x-2">
                             <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -751,13 +1474,61 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Mobile Layout -->
+                <div class="md:hidden mobile-stats">
+                    <div class="mobile-stats-row">
+                        <div class="mobile-stats-item">
+                            <div
+                                class="mobile-stats-icon w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i data-lucide="list-todo" class="w-4 h-4 text-blue-600"></i>
+                            </div>
+                            <div class="mobile-stats-text">
+                                <p class="text-themed-secondary">Today</p>
+                                <p class="text-themed" id="todayTasksCountMobile">0</p>
+                            </div>
+                        </div>
+                        <div class="mobile-stats-item">
+                            <div
+                                class="mobile-stats-icon w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-green-600"></i>
+                            </div>
+                            <div class="mobile-stats-text">
+                                <p class="text-themed-secondary">Done</p>
+                                <p class="text-green-600" id="completedTasksCountMobile">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-stats-row">
+                        <div class="mobile-stats-item">
+                            <div
+                                class="mobile-stats-icon w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                                <i data-lucide="clock" class="w-4 h-4 text-purple-600"></i>
+                            </div>
+                            <div class="mobile-stats-text">
+                                <p class="text-themed-secondary">Later</p>
+                                <p class="text-purple-600" id="doLaterCountMobile">0</p>
+                            </div>
+                        </div>
+                        <div class="mobile-stats-item">
+                            <div
+                                class="mobile-stats-icon w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center">
+                                <i data-lucide="trending-up" class="w-4 h-4 text-indigo-600"></i>
+                            </div>
+                            <div class="mobile-stats-text">
+                                <p class="text-themed-secondary">Progress</p>
+                                <p class="text-indigo-600" id="completionRateMobile">0%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Main Content -->
-            <div class="grid grid-cols-1 xl:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 xl:grid-cols-4 gap-6 mobile-main">
                 <!-- Today's Tasks -->
                 <div class="xl:col-span-3">
-                    <div class="card-bg rounded-2xl overflow-hidden shadow-lg">
+                    <div class="card-bg rounded-2xl overflow-hidden shadow-lg mobile-tasks">
                         <div class="p-5 border-b border-gray-200">
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center space-x-3">
@@ -772,12 +1543,12 @@
                                 </div>
                                 <div class="flex space-x-2">
                                     <button id="searchBtn"
-                                        class="p-2 text-themed-secondary hover:text-themed hover:bg-gray-100 rounded-lg transition-all"
+                                        class="p-2 text-themed-secondary hover:text-themed hover:bg-gray-100 rounded-lg transition-all touch-target haptic-light"
                                         title="Search tasks (Ctrl+/)">
                                         <i data-lucide="search" class="w-5 h-5"></i>
                                     </button>
                                     <button id="helpBtn"
-                                        class="p-2 text-themed-secondary hover:text-themed hover:bg-gray-100 rounded-lg transition-all"
+                                        class="p-2 text-themed-secondary hover:text-themed hover:bg-gray-100 rounded-lg transition-all touch-target haptic-light"
                                         title="Keyboard shortcuts">
                                         <i data-lucide="help-circle" class="w-5 h-5"></i>
                                     </button>
@@ -795,48 +1566,55 @@
                             </div>
 
                             <!-- Add Task Form -->
-                            <form id="addTaskForm" class="space-y-3">
+                            <form id="addTaskForm" class="space-y-3 mobile-form">
                                 <div class="flex space-x-3">
                                     <input type="text" id="taskInput" placeholder="What needs to be crafted today?"
-                                        class="flex-1 px-4 py-3 border border-themed rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all bg-white/50 text-themed placeholder-gray-400">
+                                        class="flex-1 px-4 py-3 border border-themed rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all bg-white/50 text-themed placeholder-gray-400 touch-target">
                                     <button type="submit"
-                                        class="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-xl hover:from-orange-600 hover:to-red-700 transition-all transform hover:scale-105 shadow-lg flex items-center space-x-2">
+                                        class="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-xl hover:from-orange-600 hover:to-red-700 transition-all transform hover:scale-105 shadow-lg flex items-center space-x-2 touch-target haptic-medium">
                                         <i data-lucide="plus" class="w-4 h-4"></i>
                                         <span class="hidden sm:inline">Add</span>
                                     </button>
                                 </div>
 
                                 <!-- Compact Category & Priority Row -->
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="text-xs text-themed-secondary font-medium">Category:</span>
+                                <div class="flex items-center justify-between mobile-selectors">
+                                    <div class="flex items-center space-x-2 mobile-selector-row">
+                                        <span
+                                            class="text-xs text-themed-secondary font-medium mobile-selector-label">Category:</span>
                                         <div class="flex space-x-1">
-                                            <div class="category-option-compact selected" data-category="personal"
-                                                title="Personal">
+                                            <div class="category-option-compact selected touch-target haptic-light"
+                                                data-category="personal" title="Personal">
                                                 <i data-lucide="user" class="w-3 h-3"></i>
                                             </div>
-                                            <div class="category-option-compact" data-category="work" title="Work">
+                                            <div class="category-option-compact touch-target haptic-light"
+                                                data-category="work" title="Work">
                                                 <i data-lucide="briefcase" class="w-3 h-3"></i>
                                             </div>
-                                            <div class="category-option-compact" data-category="study" title="Study">
+                                            <div class="category-option-compact touch-target haptic-light"
+                                                data-category="study" title="Study">
                                                 <i data-lucide="book-open" class="w-3 h-3"></i>
                                             </div>
-                                            <div class="category-option-compact" data-category="health" title="Health">
+                                            <div class="category-option-compact touch-target haptic-light"
+                                                data-category="health" title="Health">
                                                 <i data-lucide="heart" class="w-3 h-3"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex items-center space-x-2">
-                                        <span class="text-xs text-themed-secondary font-medium">Priority:</span>
+                                    <div class="flex items-center space-x-2 mobile-selector-row">
+                                        <span
+                                            class="text-xs text-themed-secondary font-medium mobile-selector-label">Priority:</span>
                                         <div class="flex space-x-1">
-                                            <div class="priority-option-compact selected" data-priority="medium"
-                                                title="Normal">
+                                            <div class="priority-option-compact selected touch-target haptic-light"
+                                                data-priority="medium" title="Normal">
                                                 <i data-lucide="minus" class="w-3 h-3"></i>
                                             </div>
-                                            <div class="priority-option-compact" data-priority="high" title="High">
+                                            <div class="priority-option-compact touch-target haptic-light"
+                                                data-priority="high" title="High">
                                                 <i data-lucide="arrow-up" class="w-3 h-3"></i>
                                             </div>
-                                            <div class="priority-option-compact" data-priority="urgent" title="Urgent">
+                                            <div class="priority-option-compact touch-target haptic-light"
+                                                data-priority="urgent" title="Urgent">
                                                 <i data-lucide="zap" class="w-3 h-3"></i>
                                             </div>
                                         </div>
@@ -862,7 +1640,7 @@
                 </div>
 
                 <!-- Compact Sidebar -->
-                <div class="space-y-4">
+                <div class="space-y-4 mobile-sidebar">
                     <!-- Quick Actions Card -->
                     <div class="card-bg rounded-2xl p-4 shadow-lg">
                         <h3 class="text-sm font-semibold text-themed mb-3 flex items-center">
@@ -974,6 +1752,100 @@
                     Add Anyway
                 </button>
             </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation (only visible on mobile) -->
+    <div class="mobile-nav md:hidden">
+        <div class="mobile-nav-items">
+            <button class="mobile-nav-item active" data-section="tasks">
+                <i data-lucide="list-todo" class="w-5 h-5"></i>
+                <span class="mobile-nav-text">Tasks</span>
+            </button>
+            <button class="mobile-nav-item" data-section="stats">
+                <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                <span class="mobile-nav-text">Stats</span>
+            </button>
+            <button class="mobile-nav-item" data-section="future">
+                <i data-lucide="clock" class="w-5 h-5"></i>
+                <span class="mobile-nav-text">Future</span>
+            </button>
+            <button class="mobile-nav-item" data-section="settings">
+                <i data-lucide="settings" class="w-5 h-5"></i>
+                <span class="mobile-nav-text">Settings</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating Action Button (only visible on mobile) -->
+    <button id="mobileFab" class="fab md:hidden haptic-medium" title="Quick Add Task">
+        <i data-lucide="plus" class="w-6 h-6"></i>
+    </button>
+
+    <!-- Mobile Quick Add Modal -->
+    <div id="mobileQuickAdd" class="hidden fixed inset-0 modal-backdrop flex items-end justify-center z-50 md:hidden">
+        <div class="mobile-modal card-bg shadow-2xl p-6 w-full mobile-slide-up">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold">Quick Add Task</h3>
+                <button id="closeMobileQuickAdd" class="p-2 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="mobileQuickAddForm" class="space-y-4">
+                <input type="text" id="mobileTaskInput" placeholder="What needs to be done?"
+                    class="w-full px-4 py-3 border border-themed rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all bg-white/50 text-themed">
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Category</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="mobile-category-option selected" data-category="personal">
+                                <i data-lucide="user" class="w-4 h-4"></i>
+                                <span class="text-xs">Personal</span>
+                            </div>
+                            <div class="mobile-category-option" data-category="work">
+                                <i data-lucide="briefcase" class="w-4 h-4"></i>
+                                <span class="text-xs">Work</span>
+                            </div>
+                            <div class="mobile-category-option" data-category="study">
+                                <i data-lucide="book-open" class="w-4 h-4"></i>
+                                <span class="text-xs">Study</span>
+                            </div>
+                            <div class="mobile-category-option" data-category="health">
+                                <i data-lucide="heart" class="w-4 h-4"></i>
+                                <span class="text-xs">Health</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Priority</label>
+                        <div class="space-y-2">
+                            <div class="mobile-priority-option selected" data-priority="medium">
+                                <i data-lucide="minus" class="w-4 h-4"></i>
+                                <span class="text-xs">Normal</span>
+                            </div>
+                            <div class="mobile-priority-option" data-priority="high">
+                                <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                                <span class="text-xs">High</span>
+                            </div>
+                            <div class="mobile-priority-option" data-priority="urgent">
+                                <i data-lucide="zap" class="w-4 h-4"></i>
+                                <span class="text-xs">Urgent</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit"
+                    class="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-xl hover:from-orange-600 hover:to-red-700 transition-all transform active:scale-95 shadow-lg">
+                    <i data-lucide="plus" class="w-4 h-4 inline mr-2"></i>
+                    Add Task
+                </button>
+
+                <input type="hidden" id="mobileSelectedCategory" value="personal">
+                <input type="hidden" id="mobileSelectedPriority" value="medium">
+            </form>
         </div>
     </div>
 
