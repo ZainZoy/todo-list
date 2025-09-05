@@ -46,6 +46,7 @@ class TodoApp {
         const addTaskForm = document.getElementById('addTaskForm');
         const addDoLaterForm = document.getElementById('addDoLaterForm');
         const prePlanForm = document.getElementById('prePlanForm');
+        const mobileQuickAddForm = document.getElementById('mobileQuickAddForm');
 
         if (addTaskForm) {
             addTaskForm.addEventListener('submit', (e) => {
@@ -65,6 +66,13 @@ class TodoApp {
             prePlanForm.addEventListener('submit', (e) => {
                 console.log('Pre-plan form submitted');
                 this.addPrePlanTask(e);
+            });
+        }
+
+        if (mobileQuickAddForm) {
+            mobileQuickAddForm.addEventListener('submit', (e) => {
+                console.log('Mobile quick add form submitted');
+                this.addMobileTask(e);
             });
         }
 
@@ -115,6 +123,7 @@ class TodoApp {
         this.setupPrioritySelector();
         this.setupSearch();
         this.setupKeyboardShortcuts();
+        this.setupMobileFeatures();
     }
 
     setupCategorySelector() {
@@ -238,7 +247,325 @@ class TodoApp {
         });
     }
 
+    setupMobileFeatures() {
+        // Mobile FAB
+        const mobileFab = document.getElementById('mobileFab');
+        const mobileQuickAdd = document.getElementById('mobileQuickAdd');
+        const closeMobileQuickAdd = document.getElementById('closeMobileQuickAdd');
 
+        if (mobileFab && mobileQuickAdd) {
+            mobileFab.addEventListener('click', () => {
+                mobileQuickAdd.classList.remove('hidden');
+                document.getElementById('mobileTaskInput').focus();
+                this.addHapticFeedback('medium');
+            });
+        }
+
+        if (closeMobileQuickAdd && mobileQuickAdd) {
+            closeMobileQuickAdd.addEventListener('click', () => {
+                mobileQuickAdd.classList.add('hidden');
+            });
+        }
+
+        // Mobile navigation
+        const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+        mobileNavItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove active class from all items
+                mobileNavItems.forEach(nav => nav.classList.remove('active'));
+                // Add active class to clicked item
+                item.classList.add('active');
+
+                const section = item.dataset.section;
+                this.handleMobileNavigation(section);
+                this.addHapticFeedback('light');
+            });
+        });
+
+        // Mobile category and priority selectors
+        this.setupMobileCategorySelector();
+        this.setupMobilePrioritySelector();
+
+        // Pull to refresh
+        this.setupPullToRefresh();
+
+        // Touch gestures
+        this.setupTouchGestures();
+
+        // Keyboard handling for mobile
+        this.setupMobileKeyboard();
+    }
+
+    setupMobileCategorySelector() {
+        const categoryOptions = document.querySelectorAll('.mobile-category-option');
+        const selectedCategoryInput = document.getElementById('mobileSelectedCategory');
+
+        categoryOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                categoryOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                if (selectedCategoryInput) {
+                    selectedCategoryInput.value = option.dataset.category;
+                }
+                this.addHapticFeedback('light');
+            });
+        });
+    }
+
+    setupMobilePrioritySelector() {
+        const priorityOptions = document.querySelectorAll('.mobile-priority-option');
+        const selectedPriorityInput = document.getElementById('mobileSelectedPriority');
+
+        priorityOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                priorityOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                if (selectedPriorityInput) {
+                    selectedPriorityInput.value = option.dataset.priority;
+                }
+                this.addHapticFeedback('light');
+            });
+        });
+    }
+
+    setupPullToRefresh() {
+        let startY = 0;
+        let currentY = 0;
+        let isPulling = false;
+        const pullThreshold = 100;
+        const pullIndicator = document.getElementById('pullToRefresh');
+
+        document.addEventListener('touchstart', (e) => {
+            if (window.scrollY === 0) {
+                startY = e.touches[0].clientY;
+                isPulling = true;
+            }
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isPulling) return;
+
+            currentY = e.touches[0].clientY;
+            const pullDistance = currentY - startY;
+
+            if (pullDistance > 0 && pullDistance < pullThreshold * 2) {
+                e.preventDefault();
+
+                if (pullIndicator) {
+                    const opacity = Math.min(pullDistance / pullThreshold, 1);
+                    pullIndicator.style.opacity = opacity;
+
+                    if (pullDistance > pullThreshold) {
+                        pullIndicator.classList.add('active');
+                    } else {
+                        pullIndicator.classList.remove('active');
+                    }
+                }
+            }
+        });
+
+        document.addEventListener('touchend', () => {
+            if (!isPulling) return;
+
+            const pullDistance = currentY - startY;
+
+            if (pullDistance > pullThreshold) {
+                this.refreshData();
+                this.addHapticFeedback('medium');
+            }
+
+            if (pullIndicator) {
+                pullIndicator.style.opacity = 0;
+                pullIndicator.classList.remove('active');
+            }
+
+            isPulling = false;
+        });
+    }
+
+    setupTouchGestures() {
+        // Add swipe gestures for task items
+        let startX = 0;
+        let startY = 0;
+        let currentElement = null;
+
+        document.addEventListener('touchstart', (e) => {
+            if (e.target.closest('.task-item')) {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                currentElement = e.target.closest('.task-item');
+            }
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!currentElement) return;
+
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+            const diffX = startX - currentX;
+            const diffY = startY - currentY;
+
+            // Only handle horizontal swipes
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                e.preventDefault();
+
+                if (diffX > 0) {
+                    // Swipe left - show delete option
+                    currentElement.style.transform = `translateX(-${Math.min(diffX, 100)}px)`;
+                    currentElement.style.backgroundColor = '#fee2e2';
+                }
+            }
+        });
+
+        document.addEventListener('touchend', () => {
+            if (currentElement) {
+                currentElement.style.transform = '';
+                currentElement.style.backgroundColor = '';
+                currentElement = null;
+            }
+        });
+    }
+
+    setupMobileKeyboard() {
+        // Handle virtual keyboard appearance
+        const viewport = window.visualViewport;
+
+        if (viewport) {
+            viewport.addEventListener('resize', () => {
+                const keyboardHeight = window.innerHeight - viewport.height;
+
+                if (keyboardHeight > 100) {
+                    // Keyboard is open
+                    document.body.classList.add('keyboard-open');
+                    document.body.style.paddingBottom = `${keyboardHeight}px`;
+                } else {
+                    // Keyboard is closed
+                    document.body.classList.remove('keyboard-open');
+                    document.body.style.paddingBottom = '';
+                }
+            });
+        }
+    }
+
+    handleMobileNavigation(section) {
+        // Handle mobile navigation between sections
+        const sections = {
+            tasks: () => {
+                // Scroll to tasks section
+                document.querySelector('#tasksList').scrollIntoView({ behavior: 'smooth' });
+            },
+            stats: () => {
+                // Scroll to stats section
+                document.querySelector('.card-bg').scrollIntoView({ behavior: 'smooth' });
+            },
+            future: () => {
+                // Scroll to future items
+                document.querySelector('#doLaterList').scrollIntoView({ behavior: 'smooth' });
+            },
+            settings: () => {
+                // Open theme menu
+                const themeMenu = document.getElementById('themeMenu');
+                if (themeMenu) {
+                    themeMenu.classList.toggle('hidden');
+                }
+            }
+        };
+
+        if (sections[section]) {
+            sections[section]();
+        }
+    }
+
+    addMobileTask(e) {
+        e.preventDefault();
+
+        const taskInput = document.getElementById('mobileTaskInput');
+        const selectedCategoryInput = document.getElementById('mobileSelectedCategory');
+        const selectedPriorityInput = document.getElementById('mobileSelectedPriority');
+
+        if (!taskInput || !taskInput.value.trim()) {
+            this.addHapticFeedback('heavy');
+            return;
+        }
+
+        const taskText = taskInput.value.trim();
+        const category = selectedCategoryInput ? selectedCategoryInput.value : 'personal';
+        const priority = selectedPriorityInput ? selectedPriorityInput.value : 'medium';
+
+        // Check for similar tasks
+        const similarTask = this.findSimilarTask(taskText);
+        if (similarTask) {
+            this.pendingTask = {
+                text: taskText,
+                category: category,
+                priority: priority
+            };
+            this.showConfirmModal(similarTask, taskText);
+            return;
+        }
+
+        this.createTask(taskText, category, priority);
+        taskInput.value = '';
+
+        // Close mobile modal
+        const mobileQuickAdd = document.getElementById('mobileQuickAdd');
+        if (mobileQuickAdd) {
+            mobileQuickAdd.classList.add('hidden');
+        }
+
+        this.addHapticFeedback('medium');
+    }
+
+    addHapticFeedback(intensity = 'light') {
+        // Simulate haptic feedback with visual cues
+        const body = document.body;
+
+        if (navigator.vibrate) {
+            // Use actual vibration if available
+            const patterns = {
+                light: [10],
+                medium: [20],
+                heavy: [30, 10, 30]
+            };
+            navigator.vibrate(patterns[intensity] || patterns.light);
+        }
+
+        // Add visual feedback
+        body.classList.add(`vibrate-${intensity}`);
+        setTimeout(() => {
+            body.classList.remove(`vibrate-${intensity}`);
+        }, intensity === 'heavy' ? 300 : intensity === 'medium' ? 200 : 100);
+    }
+
+    refreshData() {
+        // Refresh app data
+        this.renderTasks();
+        this.renderDoLaterItems();
+        this.updateStats();
+        this.updateMotivationalTip();
+
+        // Show refresh feedback
+        const pullIndicator = document.getElementById('pullToRefresh');
+        if (pullIndicator) {
+            pullIndicator.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                    <span class="text-sm text-green-600">Refreshed!</span>
+                </div>
+            `;
+
+            setTimeout(() => {
+                pullIndicator.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="refresh-cw" class="w-4 h-4 animate-spin"></i>
+                        <span class="text-sm">Refreshing...</span>
+                    </div>
+                `;
+            }, 1000);
+        }
+
+        lucide.createIcons();
+    }
 
     showMainApp() {
         this.renderTasks();
@@ -767,10 +1094,26 @@ class TodoApp {
         const completedTasks = todayTasks.filter(task => task.completed);
         const completionRate = todayTasks.length > 0 ? Math.round((completedTasks.length / todayTasks.length) * 100) : 0;
 
+        // Update desktop stats
         document.getElementById('todayTasksCount').textContent = todayTasks.length;
         document.getElementById('completedTasksCount').textContent = completedTasks.length;
         document.getElementById('doLaterCount').textContent = this.doLaterItems.length;
         document.getElementById('completionRate').textContent = `${completionRate}%`;
+
+        // Update mobile stats
+        const mobileElements = {
+            'todayTasksCountMobile': todayTasks.length,
+            'completedTasksCountMobile': completedTasks.length,
+            'doLaterCountMobile': this.doLaterItems.length,
+            'completionRateMobile': `${completionRate}%`
+        };
+
+        Object.entries(mobileElements).forEach(([id, value]) => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = value;
+            }
+        });
     }
 
     setTheme(theme) {
