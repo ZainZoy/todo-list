@@ -68,254 +68,138 @@
             --accent-secondary: #16a34a;
         }
 
-        [data-theme="goku"] {
-            --bg-primary: linear-gradient(135deg, #F85B1A 0%, #072083 100%);
-            --bg-secondary: rgba(248, 91, 26, 0.1);
-            --bg-card: rgba(255, 255, 255, 0.95);
-            --text-primary: #072083;
-            --text-secondary: #F85B1A;
-            --border-color: rgba(248, 91, 26, 0.2);
-            --accent-primary: #F85B1A;
-            --accent-secondary: #072083;
-        }
 
-        [data-theme="batman"] {
-            --bg-primary: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-            --bg-secondary: rgba(31, 41, 55, 0.8);
-            --bg-card: rgba(55, 65, 81, 0.9);
-            --text-primary: #f9fafb;
-            --text-secondary: #d1d5db;
-            --border-color: #374151;
-            --accent-primary: #fbbf24;
-            --accent-secondary: #f59e0b;
-        }
 
-        [data-theme="ironman"] {
-            --bg-primary: linear-gradient(135deg, #E30022 0%, #CC0000 100%);
-            --bg-secondary: rgba(227, 0, 34, 0.1);
-            --bg-card: rgba(255, 255, 255, 0.95);
-            --text-primary: #CC0000;
-            --text-secondary: #E30022;
-            --border-color: rgba(227, 0, 34, 0.2);
-            --accent-primary: #E30022;
-            --accent-secondary: #D3AF37;
-        }
 
-        [data-theme="superman"] {
-            --bg-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            --bg-secondary: rgba(37, 99, 235, 0.1);
-            --bg-card: rgba(255, 255, 255, 0.95);
-            --text-primary: #1e40af;
-            --text-secondary: #2563eb;
-            --border-color: rgba(37, 99, 235, 0.2);
-            --accent-primary: #2563eb;
-            --accent-secondary: #dc2626;
-        }
-
-        /* Theme-specific enhancements for better contrast */
-        [data-theme="ironman"] .text-themed {
-            color: #CC0000;
-            font-weight: 500;
-        }
-
-        [data-theme="ironman"] .text-themed-secondary {
-            color: #D3AF37;
-            font-weight: 400;
-        }
-
-        [data-theme="ironman"] .category-option.selected {
-            background: linear-gradient(135deg, #E30022, #D3AF37);
-            color: white;
-            font-weight: 600;
-        }
-
-        [data-theme="goku"] .text-themed {
-            color: #072083;
-            font-weight: 600;
-        }
-
-        [data-theme="goku"] .text-themed-secondary {
-            color: #F85B1A;
-            font-weight: 500;
-        }
-
-        [data-theme="goku"] .category-option.selected {
-            background: linear-gradient(135deg, #F85B1A, #072083);
-            color: white;
-            font-weight: 600;
-        }
-
-        /* Enhanced button styling for hero themes */
-        [data-theme="ironman"] button[type="submit"] {
-            background: linear-gradient(135deg, #E30022, #D3AF37) !important;
-            box-shadow: 0 4px 15px rgba(227, 0, 34, 0.3);
-        }
-
-        [data-theme="goku"] button[type="submit"] {
-            background: linear-gradient(135deg, #F85B1A, #072083) !important;
-            box-shadow: 0 4px 15px rgba(248, 91, 26, 0.3);
-        }
-
-        /* Enhanced card backgrounds for better readability */
-        [data-theme="ironman"] .card-bg {
-            background: rgba(255, 255, 255, 0.98);
-            border: 2px solid rgba(211, 175, 55, 0.3);
-        }
-
-        [data-theme="goku"] .card-bg {
-            background: rgba(255, 255, 255, 0.98);
-            border: 2px solid rgba(248, 91, 26, 0.3);
-        }
-
-        /* Better task item styling for hero themes */
-        [data-theme="ironman"] .task-item:hover {
-            box-shadow: 0 8px 25px rgba(227, 0, 34, 0.15);
-            border-color: #D3AF37;
-        }
-
-        [data-theme="goku"] .task-item:hover {
-            box-shadow: 0 8px 25px rgba(248, 91, 26, 0.15);
-            border-color: #F85B1A;
-        }
-
-        /* Stats cards enhancement */
-        [data-theme="ironman"] .card-bg:hover {
-            box-shadow: 0 10px 30px rgba(227, 0, 34, 0.1);
-        }
-
-        [data-theme="goku"] .card-bg:hover {
-            box-shadow: 0 10px 30px rgba(248, 91, 26, 0.1);
-        }
-
-        /* Navigation and text visibility fixes for hero themes */
-        [data-theme="ironman"] nav,
-        [data-theme="superman"] nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        [data-theme="ironman"] nav *,
-        [data-theme="superman"] nav * {
-            color: #1f2937 !important;
-        }
-
-        [data-theme="ironman"] nav button:hover,
-        [data-theme="superman"] nav button:hover {
-            background: rgba(0, 0, 0, 0.1);
-            color: #000 !important;
-        }
-
-        /* Main content text visibility */
-        [data-theme="ironman"] .text-themed,
-        [data-theme="superman"] .text-themed {
-            color: white !important;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-weight: 600;
-        }
-
-        [data-theme="ironman"] .text-themed-secondary,
-        [data-theme="superman"] .text-themed-secondary {
-            color: rgba(255, 255, 255, 0.9) !important;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-            font-weight: 500;
-        }
-
-        /* Quote and date visibility */
-        [data-theme="ironman"] #motivationalTip,
-        [data-theme="superman"] #motivationalTip,
-        [data-theme="ironman"] #todayDate,
-        [data-theme="superman"] #todayDate {
-            color: rgba(255, 255, 255, 0.95) !important;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-            background: rgba(0, 0, 0, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Header text visibility */
-        [data-theme="ironman"] h2,
-        [data-theme="superman"] h2 {
-            color: white !important;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-            font-weight: 700;
-        }
-
-        /* Section headers in cards */
-        [data-theme="ironman"] .card-bg h3,
-        [data-theme="superman"] .card-bg h3,
-        [data-theme="ironman"] .card-bg .text-themed,
-        [data-theme="superman"] .card-bg .text-themed {
-            color: #1f2937 !important;
-            text-shadow: none;
-        }
-
-        /* Stats text in cards */
-        [data-theme="ironman"] .card-bg p,
-        [data-theme="superman"] .card-bg p {
-            color: #374151 !important;
-        }
-
-        /* Superman specific overrides */
-        [data-theme="superman"] .text-themed {
-            color: white !important;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-        }
-
-        [data-theme="superman"] .text-themed-secondary {
-            color: #fecaca !important;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-        }
-
-        /* Iron Man specific overrides */
-        [data-theme="ironman"] .text-themed {
-            color: #FCC200 !important;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        [data-theme="ironman"] .text-themed-secondary {
-            color: #fbbf24 !important;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-        }
-
-        /* Theme menu visibility fixes */
-        [data-theme="ironman"] #themeMenu,
-        [data-theme="superman"] #themeMenu {
-            background: rgba(255, 255, 255, 0.98) !important;
-            border: 2px solid rgba(0, 0, 0, 0.1);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        [data-theme="ironman"] #themeMenu *,
-        [data-theme="superman"] #themeMenu * {
-            color: #1f2937 !important;
-        }
-
-        /* Empty state visibility */
-        [data-theme="ironman"] #emptyState,
-        [data-theme="superman"] #emptyState {
-            color: rgba(255, 255, 255, 0.8) !important;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Form input visibility */
-        [data-theme="ironman"] input,
-        [data-theme="superman"] input {
-            background: rgba(255, 255, 255, 0.95) !important;
-            color: #1f2937 !important;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        [data-theme="ironman"] input::placeholder,
-        [data-theme="superman"] input::placeholder {
-            color: #6b7280 !important;
-        }
 
         body {
             background: var(--bg-primary);
             color: var(--text-primary);
             transition: all 0.3s ease;
+        }
+
+        /* Minimal Mode Styles */
+        [data-mode="minimal"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #8b5cf6;
+        }
+
+        [data-mode="minimal"] body {
+            background: #ffffff !important;
+        }
+
+        [data-mode="minimal"] .minimal-hide {
+            display: none !important;
+        }
+
+        [data-mode="minimal"] .card-bg {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+
+        [data-mode="minimal"] .mobile-header {
+            background: #ffffff !important;
+            color: #1f2937 !important;
+            box-shadow: none !important;
+            border-bottom: 1px solid #e5e7eb !important;
+        }
+
+        [data-mode="minimal"] .mobile-stats {
+            display: none !important;
+        }
+
+        [data-mode="minimal"] .task-item {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid #f3f4f6 !important;
+            border-radius: 0 !important;
+            padding: 0.75rem 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        [data-mode="minimal"] .task-item:hover {
+            background: #f9fafb !important;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        [data-mode="minimal"] .mobile-form {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+            padding: 1rem 0 !important;
+        }
+
+        [data-mode="minimal"] .mobile-form input[type="text"] {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 2px solid #e5e7eb !important;
+            border-radius: 0 !important;
+            padding: 0.75rem 0 !important;
+            font-size: 1.125rem !important;
+        }
+
+        [data-mode="minimal"] .mobile-form input[type="text"]:focus {
+            border-bottom-color: #3b82f6 !important;
+            box-shadow: none !important;
+        }
+
+        [data-mode="minimal"] .mobile-form button[type="submit"] {
+            background: #3b82f6 !important;
+            border-radius: 0.5rem !important;
+            padding: 0.75rem 1.5rem !important;
+            font-size: 0.875rem !important;
+            width: auto !important;
+            margin-top: 1rem !important;
+        }
+
+        [data-mode="minimal"] .mobile-selectors {
+            display: none !important;
+        }
+
+        [data-mode="minimal"] .fab {
+            display: none !important;
+        }
+
+        [data-mode="minimal"] .mobile-nav {
+            display: none !important;
+        }
+
+        [data-mode="minimal"] .mobile-main-content {
+            padding-bottom: 2rem !important;
+        }
+
+        /* Minimal Mode Toggle Button */
+        .minimal-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 60;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .minimal-toggle:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-mode="minimal"] .minimal-toggle {
+            background: #f3f4f6;
+            border-color: #d1d5db;
         }
 
         .glass {
@@ -521,259 +405,385 @@
                 -webkit-overflow-scrolling: touch;
             }
 
-            /* Navigation */
-            nav {
-                padding: 0.75rem 1rem;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                z-index: 50;
-                backdrop-filter: blur(20px);
-            }
-
-            nav .flex {
-                gap: 0.5rem;
-            }
-
-            nav h1 {
-                font-size: 1.125rem;
-            }
-
-            /* Add top padding to body for fixed nav */
+            /* Reset body padding and hide desktop nav */
             body {
-                padding-top: 4rem;
+                padding-top: 0 !important;
+                background: #f8fafc !important;
             }
 
-            /* Header */
+            nav {
+                display: none !important;
+            }
+
+            /* Mobile header with gradient */
             .mobile-header {
-                padding: 1rem !important;
-                margin-bottom: 1rem !important;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+                color: white !important;
+                padding: 2rem 1rem 1.5rem !important;
+                margin: 0 !important;
+                border-radius: 0 0 2rem 2rem !important;
+                box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3) !important;
             }
 
             .mobile-header h2 {
-                font-size: 1.5rem !important;
+                color: white !important;
+                font-size: 1.75rem !important;
+                font-weight: 700 !important;
                 margin-bottom: 0.5rem !important;
+                text-shadow: none !important;
             }
 
             .mobile-header p {
-                font-size: 0.75rem !important;
+                color: rgba(255, 255, 255, 0.9) !important;
+                font-size: 0.875rem !important;
+                text-shadow: none !important;
             }
 
-            /* Stats Bar Mobile */
+            /* Responsive Mobile Stats */
             .mobile-stats {
-                flex-direction: column !important;
+                display: grid !important;
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
                 gap: 1rem !important;
-                padding: 1rem !important;
+                margin: 1rem !important;
+                margin-top: -1rem !important;
             }
 
-            .mobile-stats-row {
-                display: grid !important;
-                grid-template-columns: 1fr 1fr !important;
-                gap: 1rem !important;
-                width: 100% !important;
+            @media (max-width: 480px) {
+                .mobile-stats {
+                    grid-template-columns: 1fr 1fr !important;
+                    gap: 0.75rem !important;
+                }
+            }
+
+            @media (max-width: 360px) {
+                .mobile-stats {
+                    grid-template-columns: 1fr !important;
+                    gap: 0.5rem !important;
+                }
             }
 
             .mobile-stats-item {
+                background: white !important;
+                padding: 1rem !important;
+                border-radius: 1rem !important;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
                 display: flex !important;
                 align-items: center !important;
-                gap: 0.5rem !important;
-                padding: 0.75rem !important;
-                background: rgba(255, 255, 255, 0.5) !important;
-                border-radius: 0.75rem !important;
-                border: 1px solid var(--border-color) !important;
+                gap: 0.75rem !important;
             }
 
             .mobile-stats-icon {
-                width: 2rem !important;
-                height: 2rem !important;
+                width: 2.5rem !important;
+                height: 2.5rem !important;
+                border-radius: 0.75rem !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
                 flex-shrink: 0 !important;
             }
 
-            .mobile-stats-text {
-                flex: 1 !important;
+            .mobile-stats-text h4 {
+                font-size: 0.75rem !important;
+                color: #6b7280 !important;
+                margin: 0 !important;
+                font-weight: 500 !important;
             }
 
-            .mobile-stats-text p:first-child {
-                font-size: 0.625rem !important;
-                margin-bottom: 0.125rem !important;
-            }
-
-            .mobile-stats-text p:last-child {
-                font-size: 1rem !important;
+            .mobile-stats-text p {
+                font-size: 1.25rem !important;
                 font-weight: 700 !important;
+                margin: 0 !important;
+                color: #1f2937 !important;
             }
 
-            /* Main Content Mobile */
+            /* Clean Main Content */
             .mobile-main {
-                grid-template-columns: 1fr !important;
-                gap: 1rem !important;
                 padding: 0 1rem !important;
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
             }
 
-            /* Task Form Mobile */
+            /* Responsive Task Form */
             .mobile-form {
-                padding: 1rem !important;
+                background: white !important;
+                border-radius: 1.5rem !important;
+                padding: 1.5rem !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+                border: none !important;
+                margin: 0 1rem !important;
             }
 
             .mobile-form input[type="text"] {
+                width: 100% !important;
+                padding: 1rem 1.25rem !important;
+                border: 2px solid #f3f4f6 !important;
+                border-radius: 1rem !important;
                 font-size: 1rem !important;
-                padding: 0.875rem !important;
+                background: #f9fafb !important;
+                margin-bottom: 1.5rem !important;
+                transition: all 0.3s ease !important;
             }
 
-            .mobile-form button {
-                padding: 0.875rem 1.25rem !important;
-                font-size: 0.875rem !important;
+            .mobile-form input[type="text"]:focus {
+                border-color: #667eea !important;
+                background: white !important;
+                outline: none !important;
+                box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1) !important;
+                transform: translateY(-1px) !important;
             }
 
-            /* Category/Priority Mobile */
+            .mobile-form button[type="submit"] {
+                width: 100% !important;
+                padding: 1rem 1.5rem !important;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+                color: white !important;
+                border: none !important;
+                border-radius: 1rem !important;
+                font-size: 1rem !important;
+                font-weight: 600 !important;
+                margin-top: 0.5rem !important;
+                transition: all 0.3s ease !important;
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2) !important;
+            }
+
+            .mobile-form button[type="submit"]:active {
+                transform: translateY(1px) !important;
+                box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+            }
+
+            @media (max-width: 480px) {
+                .mobile-form {
+                    margin: 0 0.75rem !important;
+                    padding: 1.25rem !important;
+                }
+
+                .mobile-form input[type="text"] {
+                    padding: 0.875rem 1rem !important;
+                    font-size: 0.95rem !important;
+                }
+
+                .mobile-form button[type="submit"] {
+                    padding: 0.875rem 1.25rem !important;
+                    font-size: 0.95rem !important;
+                }
+            }
+
+            @media (max-width: 360px) {
+                .mobile-form {
+                    margin: 0 0.5rem !important;
+                    padding: 1rem !important;
+                }
+
+                .mobile-selectors {
+                    margin-bottom: 1rem !important;
+                    padding: 0.75rem !important;
+                }
+
+                .mobile-selector-options {
+                    grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr)) !important;
+                    gap: 0.5rem !important;
+                }
+
+                .category-option-compact,
+                .priority-option-compact {
+                    min-height: 3rem !important;
+                }
+            }
+
+            /* Improved Category/Priority Selectors */
             .mobile-selectors {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
+                padding: 1rem !important;
+                background: #f8fafc !important;
+                border-radius: 1rem !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+
+            .mobile-selector-group {
+                display: flex !important;
                 flex-direction: column !important;
                 gap: 0.75rem !important;
-                align-items: flex-start !important;
-            }
-
-            .mobile-selector-row {
-                display: flex !important;
-                align-items: center !important;
-                gap: 0.5rem !important;
-                width: 100% !important;
             }
 
             .mobile-selector-label {
-                font-size: 0.75rem !important;
-                min-width: 4rem !important;
+                font-size: 0.875rem !important;
+                font-weight: 600 !important;
+                color: #374151 !important;
+                text-transform: uppercase !important;
+                letter-spacing: 0.05em !important;
+            }
+
+            .mobile-selector-options {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fit, minmax(3.5rem, 1fr)) !important;
+                gap: 0.75rem !important;
             }
 
             .category-option-compact,
             .priority-option-compact {
-                width: 2.5rem !important;
-                height: 2.5rem !important;
+                aspect-ratio: 1 !important;
+                min-height: 3.5rem !important;
+                border-radius: 1rem !important;
+                border: 2px solid #e5e7eb !important;
+                background: white !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                cursor: pointer !important;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+                position: relative !important;
+                overflow: hidden !important;
             }
 
-            /* Task List Mobile */
+            .category-option-compact::before,
+            .priority-option-compact::before {
+                content: '' !important;
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                background: linear-gradient(135deg, #667eea, #764ba2) !important;
+                opacity: 0 !important;
+                transition: opacity 0.3s ease !important;
+            }
+
+            .category-option-compact:hover,
+            .priority-option-compact:hover {
+                transform: translateY(-2px) !important;
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2) !important;
+                border-color: #667eea !important;
+            }
+
+            .category-option-compact:hover::before,
+            .priority-option-compact:hover::before {
+                opacity: 0.1 !important;
+            }
+
+            .category-option-compact.selected,
+            .priority-option-compact.selected {
+                background: linear-gradient(135deg, #667eea, #764ba2) !important;
+                border-color: #667eea !important;
+                color: white !important;
+                transform: translateY(-2px) !important;
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3) !important;
+            }
+
+            .category-option-compact.selected::before,
+            .priority-option-compact.selected::before {
+                opacity: 0 !important;
+            }
+
+            .category-option-compact i,
+            .priority-option-compact i {
+                position: relative !important;
+                z-index: 1 !important;
+            }
+
+            /* Special styling for priority options */
+            .priority-option-compact[data-priority="high"] {
+                border-color: #f59e0b !important;
+            }
+
+            .priority-option-compact[data-priority="urgent"] {
+                border-color: #ef4444 !important;
+            }
+
+            .priority-option-compact[data-priority="high"].selected {
+                background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+                border-color: #f59e0b !important;
+                box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3) !important;
+            }
+
+            .priority-option-compact[data-priority="urgent"].selected {
+                background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+                border-color: #ef4444 !important;
+                box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3) !important;
+            }
+
+            /* Category specific colors */
+            .category-option-compact[data-category="personal"].selected {
+                background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+            }
+
+            .category-option-compact[data-category="work"].selected {
+                background: linear-gradient(135deg, #10b981, #059669) !important;
+            }
+
+            .category-option-compact[data-category="study"].selected {
+                background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important;
+            }
+
+            .category-option-compact[data-category="health"].selected {
+                background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+            }
+
+            /* Clean Task List */
             .mobile-tasks {
-                padding: 1rem !important;
+                background: white !important;
+                border-radius: 1.5rem !important;
+                padding: 1.5rem !important;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
             }
 
             .task-item {
-                padding: 0.875rem !important;
-                margin-bottom: 0.5rem !important;
-            }
-
-            .task-item p {
-                font-size: 0.875rem !important;
-                line-height: 1.25 !important;
-            }
-
-            .task-item .flex:last-child {
-                gap: 0.25rem !important;
-            }
-
-            .task-item button {
-                padding: 0.5rem !important;
-            }
-
-            /* Sidebar Mobile */
-            .mobile-sidebar {
-                margin-top: 1rem !important;
-            }
-
-            .mobile-sidebar .card-bg {
-                padding: 0.875rem !important;
-            }
-
-            .mobile-sidebar h3 {
-                font-size: 0.875rem !important;
+                background: #f8fafc !important;
+                border: 1px solid #e2e8f0 !important;
+                border-radius: 1rem !important;
+                padding: 1rem !important;
                 margin-bottom: 0.75rem !important;
+                transition: all 0.2s ease !important;
             }
 
-            .mobile-sidebar input {
-                font-size: 0.875rem !important;
-                padding: 0.625rem !important;
+            .task-item:hover {
+                background: white !important;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+                transform: translateY(-1px) !important;
             }
 
-            .mobile-sidebar button {
-                font-size: 0.75rem !important;
-                padding: 0.625rem !important;
-            }
-
-            /* Modals Mobile */
-            .mobile-modal {
-                margin: 1rem !important;
-                max-width: calc(100vw - 2rem) !important;
-            }
-
-            .mobile-modal h3 {
-                font-size: 1.125rem !important;
-            }
-
-            .mobile-modal p {
-                font-size: 0.875rem !important;
-            }
-
-            .mobile-modal button {
-                padding: 0.75rem !important;
-                font-size: 0.875rem !important;
-            }
-
-            /* Touch Targets */
-            .touch-target {
-                min-height: 44px !important;
-                min-width: 44px !important;
-            }
-
-            /* Scrolling */
-            .mobile-scroll {
-                max-height: 60vh !important;
-                overflow-y: auto !important;
-            }
-
-            /* Hide desktop elements */
-            .desktop-only {
+            /* Clean Sidebar */
+            .mobile-sidebar {
                 display: none !important;
             }
 
-            /* Show mobile elements */
-            .mobile-only {
-                display: block !important;
-            }
-
-            /* Floating Action Button */
+            /* Clean FAB */
             .fab {
                 position: fixed !important;
-                bottom: 1.5rem !important;
-                right: 1.5rem !important;
+                bottom: 2rem !important;
+                right: 2rem !important;
                 width: 3.5rem !important;
                 height: 3.5rem !important;
                 border-radius: 50% !important;
-                background: linear-gradient(135deg, #f97316, #dc2626) !important;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
                 color: white !important;
                 border: none !important;
-                box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4) !important;
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
-                z-index: 40 !important;
-                transition: all 0.3s ease !important;
+                z-index: 50 !important;
+                cursor: pointer !important;
             }
 
-            .fab:hover {
-                transform: scale(1.1) !important;
-                box-shadow: 0 12px 35px rgba(249, 115, 22, 0.6) !important;
+            .fab:active {
+                transform: scale(0.95) !important;
             }
 
-            /* Mobile Navigation */
+            /* Clean Mobile Navigation */
             .mobile-nav {
                 position: fixed !important;
                 bottom: 0 !important;
                 left: 0 !important;
                 right: 0 !important;
-                background: var(--bg-card) !important;
-                border-top: 1px solid var(--border-color) !important;
-                padding: 0.75rem !important;
-                z-index: 30 !important;
-                backdrop-filter: blur(20px) !important;
+                background: white !important;
+                border-top: 1px solid #e5e7eb !important;
+                padding: 1rem !important;
+                z-index: 40 !important;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1) !important;
             }
 
             .mobile-nav-items {
@@ -788,447 +798,92 @@
                 align-items: center !important;
                 gap: 0.25rem !important;
                 padding: 0.5rem !important;
-                border-radius: 0.5rem !important;
+                border-radius: 0.75rem !important;
                 transition: all 0.2s ease !important;
-                min-width: 3rem !important;
-            }
-
-            .mobile-nav-item:hover {
-                background: var(--bg-secondary) !important;
+                cursor: pointer !important;
             }
 
             .mobile-nav-item.active {
-                background: var(--accent-primary) !important;
+                background: #667eea !important;
                 color: white !important;
             }
 
             .mobile-nav-text {
-                font-size: 0.625rem !important;
+                font-size: 0.75rem !important;
                 font-weight: 500 !important;
             }
 
-            /* Add bottom padding to main content for mobile nav */
-            .mobile-main-content {
-                padding-bottom: 5rem !important;
-            }
-
-            /* Enhanced mobile interactions */
-            .mobile-swipe-hint {
-                position: relative;
-                overflow: hidden;
-            }
-
-            .mobile-swipe-hint::after {
-                content: "← Swipe for options";
-                position: absolute;
-                right: 1rem;
-                top: 50%;
-                transform: translateY(-50%);
-                font-size: 0.75rem;
-                color: var(--text-secondary);
-                opacity: 0.6;
-                pointer-events: none;
-            }
-
-            /* Pull to refresh indicator */
-            .pull-to-refresh {
-                position: fixed;
-                top: 4rem;
-                left: 50%;
-                transform: translateX(-50%);
-                background: var(--bg-card);
-                padding: 0.5rem 1rem;
-                border-radius: 1rem;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                z-index: 40;
-                opacity: 0;
-                transition: all 0.3s ease;
-            }
-
-            .pull-to-refresh.active {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0.5rem);
-            }
-
-            /* Mobile-specific animations */
-            .mobile-slide-up {
-                animation: mobileSlideUp 0.3s ease-out;
-            }
-
-            @keyframes mobileSlideUp {
-                from {
-                    transform: translateY(100%);
-                    opacity: 0;
-                }
-
-                to {
-                    transform: translateY(0);
-                    opacity: 1;
-                }
-            }
-
-            /* Improved mobile modal */
+            /* Clean Mobile Modal */
             .mobile-modal {
                 position: fixed !important;
                 bottom: 0 !important;
                 left: 0 !important;
                 right: 0 !important;
-                top: auto !important;
-                transform: none !important;
-                border-radius: 1rem 1rem 0 0 !important;
+                background: white !important;
+                border-radius: 1.5rem 1.5rem 0 0 !important;
+                padding: 2rem !important;
+                box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.15) !important;
                 max-height: 80vh !important;
                 overflow-y: auto !important;
+                animation: slideUpModal 0.3s ease-out !important;
             }
 
-            /* Mobile keyboard handling */
-            .keyboard-open {
-                padding-bottom: 0 !important;
-            }
-
-            /* Enhanced touch targets */
-            button,
-            .touch-target,
-            input[type="checkbox"] {
-                min-height: 48px !important;
-                min-width: 48px !important;
-            }
-
-            /* Mobile-specific task item styling */
-            .task-item {
-                padding: 1rem !important;
-                margin-bottom: 0.75rem !important;
-                border-radius: 1rem !important;
-                position: relative;
-                touch-action: pan-y;
-            }
-
-            .task-item::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                bottom: 0;
-                width: 4px;
-                background: var(--accent-primary);
-                border-radius: 2px 0 0 2px;
-                opacity: 0;
-                transition: opacity 0.2s ease;
-            }
-
-            .task-item:active::before {
-                opacity: 1;
-            }
-
-            /* Mobile form improvements */
-            .mobile-form input,
-            .mobile-form textarea {
-                border-radius: 1rem !important;
-                border: 2px solid var(--border-color) !important;
-                transition: all 0.2s ease !important;
-            }
-
-            .mobile-form input:focus,
-            .mobile-form textarea:focus {
-                border-color: var(--accent-primary) !important;
-                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
-                transform: scale(1.02) !important;
-            }
-
-            /* Mobile stats cards */
-            .mobile-stats-item {
-                position: relative !important;
-                overflow: hidden !important;
-            }
-
-            .mobile-stats-item::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 3px;
-                background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-                border-radius: 0.75rem 0.75rem 0 0;
-            }
-
-            /* Improved mobile navigation */
-            .mobile-nav {
-                backdrop-filter: blur(20px) !important;
-                border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1) !important;
-            }
-
-            .mobile-nav-item {
-                position: relative !important;
-                overflow: hidden !important;
-            }
-
-            .mobile-nav-item::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 0;
-                height: 2px;
-                background: var(--accent-primary);
-                transition: width 0.3s ease;
-            }
-
-            .mobile-nav-item.active::before {
-                width: 80%;
-            }
-
-            /* Mobile search enhancements */
-            #searchContainer {
-                position: fixed !important;
-                top: 4rem !important;
-                left: 1rem !important;
-                right: 1rem !important;
-                z-index: 45 !important;
-                background: var(--bg-card) !important;
-                border-radius: 1rem !important;
-                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
-                padding: 1rem !important;
-            }
-
-            /* Mobile theme menu */
-            #themeMenu {
-                position: fixed !important;
-                bottom: 0 !important;
-                left: 0 !important;
-                right: 0 !important;
-                top: auto !important;
-                transform: none !important;
-                border-radius: 1rem 1rem 0 0 !important;
-                max-height: 70vh !important;
-                overflow-y: auto !important;
-            }
-
-            /* Mobile loading states */
-            .mobile-loading {
-                position: relative;
-                overflow: hidden;
-            }
-
-            .mobile-loading::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-                animation: mobileShimmer 1.5s infinite;
-            }
-
-            @keyframes mobileShimmer {
-                0% {
-                    left: -100%;
+            @keyframes slideUpModal {
+                from {
+                    transform: translateY(100%);
                 }
 
-                100% {
-                    left: 100%;
+                to {
+                    transform: translateY(0);
                 }
             }
 
-            /* Mobile haptic feedback simulation */
-            .haptic-light:active {
-                transform: scale(0.98);
-                transition: transform 0.1s ease;
-            }
-
-            .haptic-medium:active {
-                transform: scale(0.95);
-                transition: transform 0.1s ease;
-            }
-
-            .haptic-heavy:active {
-                transform: scale(0.92);
-                transition: transform 0.1s ease;
-            }
-
-            /* Mobile category and priority options */
+            /* Mobile modal category/priority options */
             .mobile-category-option,
             .mobile-priority-option {
                 display: flex !important;
                 flex-direction: column !important;
                 align-items: center !important;
-                gap: 0.25rem !important;
-                padding: 0.75rem !important;
-                border: 2px solid var(--border-color) !important;
-                border-radius: 0.75rem !important;
+                justify-content: center !important;
+                padding: 1rem !important;
+                border: 2px solid #e5e7eb !important;
+                border-radius: 1rem !important;
+                background: #f9fafb !important;
                 cursor: pointer !important;
                 transition: all 0.2s ease !important;
-                background: var(--bg-secondary) !important;
-            }
-
-            .mobile-category-option:hover,
-            .mobile-priority-option:hover {
-                background: var(--accent-primary) !important;
-                color: white !important;
-                transform: scale(1.05) !important;
+                min-height: 4rem !important;
             }
 
             .mobile-category-option.selected,
             .mobile-priority-option.selected {
-                background: var(--accent-primary) !important;
+                background: #667eea !important;
+                border-color: #667eea !important;
                 color: white !important;
-                border-color: var(--accent-secondary) !important;
             }
 
-            .mobile-priority-option[data-priority="high"] {
-                border-color: #f59e0b !important;
+            .mobile-category-option:hover,
+            .mobile-priority-option:hover {
+                background: #667eea !important;
+                border-color: #667eea !important;
+                color: white !important;
+                transform: scale(1.05) !important;
             }
 
-            .mobile-priority-option[data-priority="urgent"] {
-                border-color: #ef4444 !important;
+            /* Hide desktop elements */
+            .desktop-only {
+                display: none !important;
             }
 
-            .mobile-priority-option[data-priority="high"].selected {
-                background: #f59e0b !important;
+            /* Add bottom padding for mobile nav */
+            .mobile-main-content {
+                padding-bottom: 6rem !important;
             }
 
-            .mobile-priority-option[data-priority="urgent"].selected {
-                background: #ef4444 !important;
-            }
-
-            /* Mobile swipe gestures */
-            .swipe-container {
-                position: relative;
-                overflow: hidden;
-            }
-
-            .swipe-actions {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                display: flex;
-                align-items: center;
-                background: linear-gradient(90deg, #ef4444, #dc2626);
-                padding: 0 1rem;
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
-            }
-
-            .swipe-actions.active {
-                transform: translateX(0);
-            }
-
-            /* Mobile pull-to-refresh */
-            .pull-indicator {
-                position: fixed;
-                top: 4rem;
-                left: 50%;
-                transform: translateX(-50%) translateY(-100%);
-                background: var(--bg-card);
-                padding: 0.5rem 1rem;
-                border-radius: 1rem;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                z-index: 45;
-                transition: transform 0.3s ease;
-            }
-
-            .pull-indicator.visible {
-                transform: translateX(-50%) translateY(0.5rem);
-            }
-
-            /* Mobile vibration classes */
-            .vibrate-light {
-                animation: vibrateLight 0.1s ease-in-out;
-            }
-
-            .vibrate-medium {
-                animation: vibrateMedium 0.2s ease-in-out;
-            }
-
-            .vibrate-heavy {
-                animation: vibrateHeavy 0.3s ease-in-out;
-            }
-
-            @keyframes vibrateLight {
-
-                0%,
-                100% {
-                    transform: translateX(0);
-                }
-
-                25% {
-                    transform: translateX(-1px);
-                }
-
-                75% {
-                    transform: translateX(1px);
-                }
-            }
-
-            @keyframes vibrateMedium {
-
-                0%,
-                100% {
-                    transform: translateX(0);
-                }
-
-                20% {
-                    transform: translateX(-2px);
-                }
-
-                40% {
-                    transform: translateX(2px);
-                }
-
-                60% {
-                    transform: translateX(-2px);
-                }
-
-                80% {
-                    transform: translateX(2px);
-                }
-            }
-
-            @keyframes vibrateHeavy {
-
-                0%,
-                100% {
-                    transform: translateX(0);
-                }
-
-                10% {
-                    transform: translateX(-3px);
-                }
-
-                20% {
-                    transform: translateX(3px);
-                }
-
-                30% {
-                    transform: translateX(-3px);
-                }
-
-                40% {
-                    transform: translateX(3px);
-                }
-
-                50% {
-                    transform: translateX(-3px);
-                }
-
-                60% {
-                    transform: translateX(3px);
-                }
-
-                70% {
-                    transform: translateX(-3px);
-                }
-
-                80% {
-                    transform: translateX(3px);
-                }
-
-                90% {
-                    transform: translateX(-3px);
-                }
+            /* Touch targets */
+            button,
+            .touch-target {
+                min-height: 44px !important;
+                min-width: 44px !important;
             }
         }
 
@@ -1333,13 +988,12 @@
 </head>
 
 <body class="min-h-screen" data-theme="light">
-    <!-- Pull to Refresh Indicator -->
-    <div id="pullToRefresh" class="pull-to-refresh">
-        <div class="flex items-center gap-2">
-            <i data-lucide="refresh-cw" class="w-4 h-4 animate-spin"></i>
-            <span class="text-sm">Refreshing...</span>
-        </div>
-    </div>
+    <!-- Minimal Mode Toggle -->
+    <button id="minimalToggle" class="minimal-toggle" title="Toggle Minimal Mode">
+        <i data-lucide="minimize-2" class="w-5 h-5 text-gray-600"></i>
+    </button>
+
+
 
     <!-- Navigation -->
     <nav class="glass sticky top-0 z-50">
@@ -1389,25 +1043,7 @@
                                     class="w-full text-left px-3 py-2 rounded-lg hover:bg-green-100 transition-colors text-themed">
                                     <i data-lucide="trees" class="w-4 h-4 inline mr-3"></i>Forest Fresh
                                 </button>
-                                <div
-                                    class="text-xs font-semibold text-themed-secondary uppercase tracking-wide mt-4 mb-2">
-                                    Hero Themes</div>
-                                <button onclick="app.setTheme('goku')"
-                                    class="w-full text-left px-3 py-2 rounded-lg hover:bg-orange-100 transition-colors text-themed">
-                                    <i data-lucide="flame" class="w-4 h-4 inline mr-3"></i>Goku Power
-                                </button>
-                                <button onclick="app.setTheme('batman')"
-                                    class="w-full text-left px-3 py-2 rounded-lg hover:bg-gray-700 transition-colors text-themed">
-                                    <i data-lucide="shield" class="w-4 h-4 inline mr-3"></i>Batman Dark
-                                </button>
-                                <button onclick="app.setTheme('ironman')"
-                                    class="w-full text-left px-3 py-2 rounded-lg hover:bg-red-100 transition-colors text-themed">
-                                    <i data-lucide="zap" class="w-4 h-4 inline mr-3"></i>Iron Man Tech
-                                </button>
-                                <button onclick="app.setTheme('superman')"
-                                    class="w-full text-left px-3 py-2 rounded-lg hover:bg-blue-100 transition-colors text-themed">
-                                    <i data-lucide="star" class="w-4 h-4 inline mr-3"></i>Superman Hope
-                                </button>
+
                             </div>
                         </div>
                     </div>
@@ -1426,14 +1062,15 @@
             <div class="text-center mb-6">
                 <h2 class="text-2xl font-bold text-themed mb-1">Ready to craft your day? ⚡</h2>
                 <p class="text-sm text-themed-secondary mb-1" id="todayDate"></p>
-                <p class="text-xs text-themed-secondary italic opacity-75 desktop-only" id="motivationalTip">"Every
+                <p class="text-xs text-themed-secondary italic opacity-75 desktop-only minimal-hide"
+                    id="motivationalTip">"Every
                     great achievement starts with a single task."</p>
             </div>
 
             <!-- Compact Stats Bar -->
             <div class="card-bg rounded-2xl p-4 mb-6 shadow-lg">
                 <!-- Desktop Layout -->
-                <div class="hidden md:flex items-center justify-between">
+                <div class="hidden md:flex items-center justify-between minimal-hide">
                     <div class="flex items-center space-x-6">
                         <div class="flex items-center space-x-2">
                             <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -1477,57 +1114,49 @@
 
                 <!-- Mobile Layout -->
                 <div class="md:hidden mobile-stats">
-                    <div class="mobile-stats-row">
-                        <div class="mobile-stats-item">
-                            <div
-                                class="mobile-stats-icon w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                                <i data-lucide="list-todo" class="w-4 h-4 text-blue-600"></i>
-                            </div>
-                            <div class="mobile-stats-text">
-                                <p class="text-themed-secondary">Today</p>
-                                <p class="text-themed" id="todayTasksCountMobile">0</p>
-                            </div>
+                    <div class="mobile-stats-item">
+                        <div class="mobile-stats-icon bg-blue-100">
+                            <i data-lucide="list-todo" class="w-5 h-5 text-blue-600"></i>
                         </div>
-                        <div class="mobile-stats-item">
-                            <div
-                                class="mobile-stats-icon w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-green-600"></i>
-                            </div>
-                            <div class="mobile-stats-text">
-                                <p class="text-themed-secondary">Done</p>
-                                <p class="text-green-600" id="completedTasksCountMobile">0</p>
-                            </div>
+                        <div class="mobile-stats-text">
+                            <h4>Today</h4>
+                            <p id="todayTasksCountMobile">0</p>
                         </div>
                     </div>
-                    <div class="mobile-stats-row">
-                        <div class="mobile-stats-item">
-                            <div
-                                class="mobile-stats-icon w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-                                <i data-lucide="clock" class="w-4 h-4 text-purple-600"></i>
-                            </div>
-                            <div class="mobile-stats-text">
-                                <p class="text-themed-secondary">Later</p>
-                                <p class="text-purple-600" id="doLaterCountMobile">0</p>
-                            </div>
+                    <div class="mobile-stats-item">
+                        <div class="mobile-stats-icon bg-green-100">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>
                         </div>
-                        <div class="mobile-stats-item">
-                            <div
-                                class="mobile-stats-icon w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center">
-                                <i data-lucide="trending-up" class="w-4 h-4 text-indigo-600"></i>
-                            </div>
-                            <div class="mobile-stats-text">
-                                <p class="text-themed-secondary">Progress</p>
-                                <p class="text-indigo-600" id="completionRateMobile">0%</p>
-                            </div>
+                        <div class="mobile-stats-text">
+                            <h4>Done</h4>
+                            <p id="completedTasksCountMobile">0</p>
+                        </div>
+                    </div>
+                    <div class="mobile-stats-item">
+                        <div class="mobile-stats-icon bg-purple-100">
+                            <i data-lucide="clock" class="w-5 h-5 text-purple-600"></i>
+                        </div>
+                        <div class="mobile-stats-text">
+                            <h4>Later</h4>
+                            <p id="doLaterCountMobile">0</p>
+                        </div>
+                    </div>
+                    <div class="mobile-stats-item">
+                        <div class="mobile-stats-icon bg-indigo-100">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-indigo-600"></i>
+                        </div>
+                        <div class="mobile-stats-text">
+                            <h4>Progress</h4>
+                            <p id="completionRateMobile">0%</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Main Content -->
-            <div class="grid grid-cols-1 xl:grid-cols-4 gap-6 mobile-main">
+            <div class="mobile-main">
                 <!-- Today's Tasks -->
-                <div class="xl:col-span-3">
+                <div>
                     <div class="card-bg rounded-2xl overflow-hidden shadow-lg mobile-tasks">
                         <div class="p-5 border-b border-gray-200">
                             <div class="flex items-center justify-between mb-4">
@@ -1578,44 +1207,37 @@
                                 </div>
 
                                 <!-- Compact Category & Priority Row -->
-                                <div class="flex items-center justify-between mobile-selectors">
-                                    <div class="flex items-center space-x-2 mobile-selector-row">
-                                        <span
-                                            class="text-xs text-themed-secondary font-medium mobile-selector-label">Category:</span>
-                                        <div class="flex space-x-1">
-                                            <div class="category-option-compact selected touch-target haptic-light"
-                                                data-category="personal" title="Personal">
-                                                <i data-lucide="user" class="w-3 h-3"></i>
+                                <div class="mobile-selectors">
+                                    <div class="mobile-selector-group">
+                                        <span class="mobile-selector-label">Category</span>
+                                        <div class="mobile-selector-options">
+                                            <div class="category-option-compact selected" data-category="personal"
+                                                title="Personal">
+                                                <i data-lucide="user" class="w-4 h-4"></i>
                                             </div>
-                                            <div class="category-option-compact touch-target haptic-light"
-                                                data-category="work" title="Work">
-                                                <i data-lucide="briefcase" class="w-3 h-3"></i>
+                                            <div class="category-option-compact" data-category="work" title="Work">
+                                                <i data-lucide="briefcase" class="w-4 h-4"></i>
                                             </div>
-                                            <div class="category-option-compact touch-target haptic-light"
-                                                data-category="study" title="Study">
-                                                <i data-lucide="book-open" class="w-3 h-3"></i>
+                                            <div class="category-option-compact" data-category="study" title="Study">
+                                                <i data-lucide="book-open" class="w-4 h-4"></i>
                                             </div>
-                                            <div class="category-option-compact touch-target haptic-light"
-                                                data-category="health" title="Health">
-                                                <i data-lucide="heart" class="w-3 h-3"></i>
+                                            <div class="category-option-compact" data-category="health" title="Health">
+                                                <i data-lucide="heart" class="w-4 h-4"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex items-center space-x-2 mobile-selector-row">
-                                        <span
-                                            class="text-xs text-themed-secondary font-medium mobile-selector-label">Priority:</span>
-                                        <div class="flex space-x-1">
-                                            <div class="priority-option-compact selected touch-target haptic-light"
-                                                data-priority="medium" title="Normal">
-                                                <i data-lucide="minus" class="w-3 h-3"></i>
+                                    <div class="mobile-selector-group">
+                                        <span class="mobile-selector-label">Priority</span>
+                                        <div class="mobile-selector-options">
+                                            <div class="priority-option-compact selected" data-priority="medium"
+                                                title="Normal">
+                                                <i data-lucide="minus" class="w-4 h-4"></i>
                                             </div>
-                                            <div class="priority-option-compact touch-target haptic-light"
-                                                data-priority="high" title="High">
-                                                <i data-lucide="arrow-up" class="w-3 h-3"></i>
+                                            <div class="priority-option-compact" data-priority="high" title="High">
+                                                <i data-lucide="arrow-up" class="w-4 h-4"></i>
                                             </div>
-                                            <div class="priority-option-compact touch-target haptic-light"
-                                                data-priority="urgent" title="Urgent">
-                                                <i data-lucide="zap" class="w-3 h-3"></i>
+                                            <div class="priority-option-compact" data-priority="urgent" title="Urgent">
+                                                <i data-lucide="zap" class="w-4 h-4"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -1639,65 +1261,7 @@
                     </div>
                 </div>
 
-                <!-- Compact Sidebar -->
-                <div class="space-y-4 mobile-sidebar">
-                    <!-- Quick Actions Card -->
-                    <div class="card-bg rounded-2xl p-4 shadow-lg">
-                        <h3 class="text-sm font-semibold text-themed mb-3 flex items-center">
-                            <i data-lucide="zap" class="w-4 h-4 mr-2" style="color: var(--accent-primary)"></i>
-                            Quick Actions
-                        </h3>
 
-                        <!-- Future Craft -->
-                        <div class="mb-4">
-                            <div class="flex items-center mb-2">
-                                <i data-lucide="clock" class="w-3 h-3 mr-1 text-purple-600"></i>
-                                <span class="text-xs font-medium text-themed">Future Craft</span>
-                            </div>
-                            <form id="addDoLaterForm">
-                                <div class="flex space-x-2">
-                                    <input type="text" id="doLaterInput" placeholder="Save for later..."
-                                        class="flex-1 px-3 py-2 text-xs border border-themed rounded-lg focus:ring-2 focus:border-transparent transition-all bg-white/50 text-themed">
-                                    <button type="submit"
-                                        class="px-2 py-2 text-white rounded-lg hover:opacity-90 transition-all shadow-sm"
-                                        style="background: var(--accent-primary)">
-                                        <i data-lucide="plus" class="w-3 h-3"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Schedule Craft -->
-                        <div class="mb-4">
-                            <div class="flex items-center mb-2">
-                                <i data-lucide="calendar-plus" class="w-3 h-3 mr-1 text-blue-600"></i>
-                                <span class="text-xs font-medium text-themed">Schedule Craft</span>
-                            </div>
-                            <form id="prePlanForm" class="space-y-2">
-                                <input type="text" id="prePlanInput" placeholder="Task to schedule..."
-                                    class="w-full px-3 py-2 text-xs border border-themed rounded-lg focus:ring-2 focus:border-transparent transition-all bg-white/50 text-themed">
-                                <input type="date" id="prePlanDate"
-                                    class="w-full px-3 py-2 text-xs border border-themed rounded-lg focus:ring-2 focus:border-transparent transition-all bg-white/50 text-themed">
-                                <button type="submit"
-                                    class="w-full px-3 py-2 text-white text-xs rounded-lg hover:opacity-90 transition-all shadow-sm"
-                                    style="background: var(--accent-primary)">
-                                    ⚡ Schedule
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!-- Future Items -->
-                    <div class="card-bg rounded-2xl p-4 shadow-lg">
-                        <h3 class="text-sm font-semibold text-themed mb-3 flex items-center">
-                            <i data-lucide="inbox" class="w-4 h-4 mr-2" style="color: var(--accent-primary)"></i>
-                            Future Items
-                        </h3>
-                        <div id="doLaterList" class="space-y-2 max-h-48 overflow-y-auto">
-                            <!-- Do Later items will be added here -->
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
