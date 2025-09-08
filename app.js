@@ -124,6 +124,7 @@ class TodoApp {
         this.setupSearch();
         this.setupKeyboardShortcuts();
         this.setupMobileFeatures();
+        this.setupMinimalMode();
     }
 
     setupCategorySelector() {
@@ -286,8 +287,7 @@ class TodoApp {
         this.setupMobileCategorySelector();
         this.setupMobilePrioritySelector();
 
-        // Pull to refresh
-        this.setupPullToRefresh();
+        // Removed pull to refresh (was annoying)
 
         // Touch gestures
         this.setupTouchGestures();
@@ -328,60 +328,7 @@ class TodoApp {
         });
     }
 
-    setupPullToRefresh() {
-        let startY = 0;
-        let currentY = 0;
-        let isPulling = false;
-        const pullThreshold = 100;
-        const pullIndicator = document.getElementById('pullToRefresh');
-
-        document.addEventListener('touchstart', (e) => {
-            if (window.scrollY === 0) {
-                startY = e.touches[0].clientY;
-                isPulling = true;
-            }
-        });
-
-        document.addEventListener('touchmove', (e) => {
-            if (!isPulling) return;
-
-            currentY = e.touches[0].clientY;
-            const pullDistance = currentY - startY;
-
-            if (pullDistance > 0 && pullDistance < pullThreshold * 2) {
-                e.preventDefault();
-
-                if (pullIndicator) {
-                    const opacity = Math.min(pullDistance / pullThreshold, 1);
-                    pullIndicator.style.opacity = opacity;
-
-                    if (pullDistance > pullThreshold) {
-                        pullIndicator.classList.add('active');
-                    } else {
-                        pullIndicator.classList.remove('active');
-                    }
-                }
-            }
-        });
-
-        document.addEventListener('touchend', () => {
-            if (!isPulling) return;
-
-            const pullDistance = currentY - startY;
-
-            if (pullDistance > pullThreshold) {
-                this.refreshData();
-                this.addHapticFeedback('medium');
-            }
-
-            if (pullIndicator) {
-                pullIndicator.style.opacity = 0;
-                pullIndicator.classList.remove('active');
-            }
-
-            isPulling = false;
-        });
-    }
+    // Removed annoying pull-to-refresh functionality
 
     setupTouchGestures() {
         // Add swipe gestures for task items
@@ -538,32 +485,11 @@ class TodoApp {
     }
 
     refreshData() {
-        // Refresh app data
+        // Simple refresh without annoying indicators
         this.renderTasks();
         this.renderDoLaterItems();
         this.updateStats();
         this.updateMotivationalTip();
-
-        // Show refresh feedback
-        const pullIndicator = document.getElementById('pullToRefresh');
-        if (pullIndicator) {
-            pullIndicator.innerHTML = `
-                <div class="flex items-center gap-2">
-                    <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
-                    <span class="text-sm text-green-600">Refreshed!</span>
-                </div>
-            `;
-
-            setTimeout(() => {
-                pullIndicator.innerHTML = `
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="refresh-cw" class="w-4 h-4 animate-spin"></i>
-                        <span class="text-sm">Refreshing...</span>
-                    </div>
-                `;
-            }, 1000);
-        }
-
         lucide.createIcons();
     }
 
@@ -1131,6 +1057,56 @@ class TodoApp {
         setTimeout(() => {
             lucide.createIcons();
         }, 100);
+    }
+
+    setupMinimalMode() {
+        this.isMinimalMode = localStorage.getItem('taskcraft_minimal') === 'true';
+
+        const minimalToggle = document.getElementById('minimalToggle');
+        if (minimalToggle) {
+            minimalToggle.addEventListener('click', () => {
+                this.toggleMinimalMode();
+            });
+        }
+
+        // Apply saved minimal mode state
+        if (this.isMinimalMode) {
+            document.documentElement.setAttribute('data-mode', 'minimal');
+            this.updateMinimalToggleIcon();
+        }
+    }
+
+    toggleMinimalMode() {
+        this.isMinimalMode = !this.isMinimalMode;
+        localStorage.setItem('taskcraft_minimal', this.isMinimalMode.toString());
+
+        if (this.isMinimalMode) {
+            document.documentElement.setAttribute('data-mode', 'minimal');
+        } else {
+            document.documentElement.removeAttribute('data-mode');
+        }
+
+        this.updateMinimalToggleIcon();
+
+        // Add haptic feedback if available
+        if (this.addHapticFeedback) {
+            this.addHapticFeedback('light');
+        }
+    }
+
+    updateMinimalToggleIcon() {
+        const minimalToggle = document.getElementById('minimalToggle');
+        if (minimalToggle) {
+            const icon = minimalToggle.querySelector('i');
+            if (this.isMinimalMode) {
+                icon.setAttribute('data-lucide', 'maximize-2');
+                minimalToggle.title = 'Exit Minimal Mode';
+            } else {
+                icon.setAttribute('data-lucide', 'minimize-2');
+                minimalToggle.title = 'Enter Minimal Mode';
+            }
+            lucide.createIcons();
+        }
     }
 
     // Enhanced do later item addition with duplicate checking
